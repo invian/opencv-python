@@ -76,16 +76,16 @@ def main():
     # https://stackoverflow.com/questions/1405913/python-32bit-or-64bit-mode
     is64 = sys.maxsize > 2 ** 32
 
-    package_name = "opencv-python"
+    package_name = "opencv-python-iv"
 
     if build_contrib and not build_headless:
-        package_name = "opencv-contrib-python"
+        package_name = "opencv-contrib-python-iv"
 
     if build_contrib and build_headless:
-        package_name = "opencv-contrib-python-headless"
+        package_name = "opencv-contrib-python-headless-iv"
 
     if build_headless and not build_contrib:
-        package_name = "opencv-python-headless"
+        package_name = "opencv-python-headless-iv"
 
     if build_rolling:
         package_name += "-rolling"
@@ -178,6 +178,27 @@ def main():
             "-DBUILD_DOCS=OFF",
             "-DPYTHON3_LIMITED_API=ON",
             "-DBUILD_OPENEXR=ON",
+            # Invian Sensor specific
+            "-DBUILD_opencv_world=OFF",
+            "-DCUDA_FAST_MATH=OFF",
+            "-DOPENCV_DNN_CUDA=OFF",
+            "-DWITH_CUBLAS=ON",
+            "-DWITH_CUDA=OFF",
+            "-DWITH_OPENVINO=OFF",
+            "-DWITH_CUDNN=OFF",
+            "-DEIGEN_INCLUDE_PATH=/usr/include/eigen3",
+            "-DWITH_OPENCL=ON",
+            "-DWITH_OPENMP=OFF",
+            "-DWITH_TBB=ON",
+            "-DWITH_1394=OFF",
+            "-DOPENCV_ENABLE_NONFREE=OFF",
+            "-DOPENCV_GENERATE_PKGCONFIG=ON",
+            "-DWITH_GSTREAMER=ON",
+            "-DWITH_LIBV4L=ON",
+            "-DWITH_OPENGL=OFF",
+            "-DWITH_GTK=OFF",
+            "-DINSTALL_CREATE_DISTRIB=ON",
+            "-DBUILD_SHARED_LIBS=OFF",
         ]
         + (
             # CMake flags for windows/arm64 build
