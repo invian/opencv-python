@@ -67,12 +67,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: wheels
-        path: wheelhouse/iv_opencv*.whl
+        path: wheelhouse/opencv*.whl
     - name: Saving a wheel accordingly to matrix
       uses: actions/upload-artifact@v3
       with:
         name: wheel-${{ matrix.with_contrib }}-${{ matrix.without_gui }}-${{ matrix.build_sdist }}
-        path: wheelhouse/iv_opencv*.whl
+        path: wheelhouse/opencv*.whl
 
   Test:
     needs: [Build]
@@ -179,7 +179,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: wheels
-        path: dist/iv_opencv*.tar.gz
+        path: dist/opencv*.tar.gz
 
   Pre-release:
     if: github.event_name == 'release' && github.event.release.prerelease
@@ -197,4 +197,4 @@ jobs:
       - name: Upload all wheels
         run: |
           python -m pip install twine
-          python -m twine upload --repository testpypi -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} --skip-existing wheelhouse/iv_opencv_* wheelhouse/iv_opencv-*
+          python -m twine upload --repository testpypi -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} --skip-existing wheelhouse/opencv_* wheelhouse/opencv-*
