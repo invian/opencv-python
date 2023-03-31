@@ -62,7 +62,7 @@ jobs:
         submodules: false
         fetch-depth: 0
     - name: Build a package
-      run: sudo source scripts/build.sh
+      run: source scripts/build.sh
     - name: Saving all wheels
       uses: actions/upload-artifact@v3
       with:
