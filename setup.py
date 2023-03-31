@@ -76,16 +76,16 @@ def main():
     # https://stackoverflow.com/questions/1405913/python-32bit-or-64bit-mode
     is64 = sys.maxsize > 2 ** 32
 
-    package_name = "opencv-python-iv"
+    package_name = "opencv-python-gst"
 
     if build_contrib and not build_headless:
-        package_name = "opencv-contrib-python-iv"
+        package_name = "opencv-contrib-python-gst"
 
     if build_contrib and build_headless:
-        package_name = "opencv-contrib-python-headless-iv"
+        package_name = "opencv-contrib-python-headless-gst"
 
     if build_headless and not build_contrib:
-        package_name = "opencv-python-headless-iv"
+        package_name = "opencv-python-headless-gst"
 
     if build_rolling:
         package_name += "-rolling"
