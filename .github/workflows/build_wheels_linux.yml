@@ -39,7 +39,7 @@ jobs:
       MB_ML_VER: 2014
       TRAVIS_BUILD_DIR: ${{ github.workspace }}
       CONFIG_PATH: travis_config.sh
-      DOCKER_IMAGE: ghcr.io/invian/gstreamer_opencv_baseline:1.0.0
+      DOCKER_IMAGE: invian/opencv-gst-baseline:latest
       USE_CCACHE: 0
       UNICODE_WIDTH: 32
       PLAT: x86_64
