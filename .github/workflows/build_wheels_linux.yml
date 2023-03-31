@@ -39,7 +39,7 @@ jobs:
       MB_ML_VER: 2014
       TRAVIS_BUILD_DIR: ${{ github.workspace }}
       CONFIG_PATH: travis_config.sh
-      DOCKER_IMAGE: quay.io/opencv-ci/opencv-python-manylinux2014-x86-64:20230117
+      DOCKER_IMAGE: ghcr.io/invian/gstreamer_opencv_baseline:1.0.0
       USE_CCACHE: 0
       UNICODE_WIDTH: 32
       PLAT: x86_64
@@ -61,47 +61,6 @@ jobs:
       with:
         submodules: false
         fetch-depth: 0
-    - name: Install dependencies
-      run: |
-        sudo apt-get update && \
-        sudo apt-get dist-upgrade -y --autoremove && \
-        sudo apt-get install -y \
-          build-essential \
-          cmake \
-          git \
-          gfortran \
-          python3.8-dev \
-          python3-pip \
-          libatlas-base-dev \
-          libavcodec-dev \
-          libavformat-dev \
-          libavresample-dev \
-          libdc1394-22-dev \
-          libeigen3-dev \
-          libglew-dev \
-          libgstreamer-plugins-base1.0-dev \
-          libgstreamer-plugins-good1.0-dev \
-          libgstreamer1.0-dev \
-          libjpeg-dev \
-          libjpeg8-dev \
-          libjpeg-turbo8-dev \
-          liblapack-dev \
-          liblapacke-dev \
-          libopenblas-dev \
-          libpng-dev \
-          libpostproc-dev \
-          libswscale-dev \
-          libtbb-dev \
-          libtbb2 \
-          libtiff-dev \
-          libv4l-dev \
-          libxine2-dev \
-          libxvidcore-dev \
-          libx264-dev \
-          pkg-config \
-          qv4l2 \
-          v4l-utils \
-          zlib1g-dev
     - name: Build a package
       run: sudo source scripts/build.sh
     - name: Saving all wheels
